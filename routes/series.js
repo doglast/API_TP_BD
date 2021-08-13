@@ -54,7 +54,7 @@ router.get('/', (req, res, next)=>{
 
 
 //Insere um novo cliente
-router.post('/', upload.single('Imagem') , function(req, res, next) {
+router.post('/' , function(req, res, next) {
   mysql.getConnection((error, conn)=>{
     conn.query(
       'INSERT INTO usuarios (Titulo, AnoLancamento, Tema, Imagem, Nota, Sinopse, Duracao, SerieStatus, Horario, Canal) VALUES (?, ?, ?, ? , ? , ?, ?, ?, , ?, ?)',
@@ -62,7 +62,7 @@ router.post('/', upload.single('Imagem') , function(req, res, next) {
         req.body.Titulo,
         req.body.AnoLancamento,
         req.body.Tema,
-        req.file.path,,
+        req.body.Imagem,
         req.body.Nota,
         req.body.Sinopse,
         req.body.Duracao,
