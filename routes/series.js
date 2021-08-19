@@ -31,7 +31,7 @@ const upload = multer({
 
 
 //Retorna lista de todos usuarios
-router.get('/', (req, res, next)=>{
+router.get('/lista', (req, res, next)=>{
   mysql.getConnection((error, conn)=>{
     conn.query(
       'SELECT * FROM series ',
@@ -54,10 +54,10 @@ router.get('/', (req, res, next)=>{
 
 
 //Insere um novo cliente
-router.post('/' , function(req, res, next) {
+router.post('/cadastro' , function(req, res, next) {
   mysql.getConnection((error, conn)=>{
     conn.query(
-      'INSERT INTO usuarios (Titulo, AnoLancamento, Tema, Imagem, Nota, Sinopse, Duracao, SerieStatus, Horario, Canal) VALUES (?, ?, ?, ? , ? , ?, ?, ?, , ?, ?)',
+      'INSERT INTO series (Titulo, AnoLancamento, Tema, Imagem, Nota, Sinopse, Duracao, SerieStatus, Horario, Canal) VALUES (?, ?, ?, ? , ? , ?, ?, ?, , ?, ?)',
       [
         req.body.Titulo,
         req.body.AnoLancamento,

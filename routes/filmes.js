@@ -31,7 +31,7 @@ const upload = multer({
 
 
 //Retorna lista de todos filmes
-router.get('/', (req, res, next)=>{
+router.get('/lista', (req, res, next)=>{
   mysql.getConnection((error, conn)=>{
     conn.query(
       'SELECT * FROM filmes ',
@@ -54,7 +54,7 @@ router.get('/', (req, res, next)=>{
 
 
 //Insere um novo filme
-router.post('/' ,function(req, res, next) {
+router.post('/cadastro' ,function(req, res, next) {
   mysql.getConnection((error, conn)=>{
     conn.query(
       'insert into filmes (Titulo, AnoLancamento, Tema, Imagem, Nota, Sinopse, Duracao) values (?, ?, ?, ?, ?, ?, ?)',
