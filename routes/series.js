@@ -45,7 +45,7 @@ router.get('/lista', (req, res, next)=>{
         }
         res.status(200).send({
           mensagem:'Consulta realizada com sucesso',
-          usuarios: result
+          series: result
         });
       }
     )
@@ -80,7 +80,7 @@ router.post('/cadastro' , function(req, res, next) {
         }
         res.status(201).send({
           mensagem:'Série inserida com sucesso',
-          cliente: result
+          serie: result
         });
       }
     )
